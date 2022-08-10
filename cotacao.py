@@ -3,8 +3,6 @@
 Created on May 3, 2022
 @author: Felipe Matheus
 """
-import requests
-import json
 import os
 import time
 import pandas as pd
@@ -12,6 +10,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+# criar o driver web
 def initWebDriver(url):
     option = Options()
     option.headless = True
@@ -22,6 +21,7 @@ def initWebDriver(url):
     
     return driver
 
+# abre o driver, busca a tabela, limpa os dados e retorna o Data Frame (site Scot Consultoria)
 def getCotacaoScot(url):
     driver = initWebDriver(url)
     
@@ -102,6 +102,7 @@ else:
         vaca.to_csv('cotacao_vaca_gorda.csv', encoding='utf-8', index=False, mode='a', header=False)
 
 """
+# abre o driver, busca a tabela, limpa os dados e retorna o Data Frame (site Canal Rural)
 def getCotacaoCanalRural(url):
     driver = initWebDriver(url)
     
